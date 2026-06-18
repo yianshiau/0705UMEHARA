@@ -2,14 +2,72 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog | iART auction</title>
-    <script>
-        if (!window.location.search.includes('keyword')) {
-            window.history.replaceState(null, '', '?keyword=%E6%A2%85%E5%8E%9F');
-        }
-    </script>
+    <style>
+        body { font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; color: #333; }
+        .navbar { background-color: #ffffff; padding: 15px 20px; border-bottom: 1px solid #e1e1e1; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 18px; font-weight: bold; color: #000; text-decoration: none; letter-spacing: 1px; }
+        .lang-menu a { text-decoration: none; color: #666; font-size: 13px; margin-left: 15px; }
+        .lang-menu a:hover { color: #000; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .title-section { border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px; }
+        .title-section h2 { margin: 0; font-size: 20px; color: #666; font-weight: normal; }
+        .title-section h1 { margin: 5px 0 0 0; font-size: 28px; font-weight: bold; letter-spacing: 1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #fff; border: 1px solid #e1e1e1; border-radius: 4px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: #999; }
+        .card-img { width: 100%; height: 280px; background-color: #eaeaea; display: flex; justify-content: center; align-items: center; color: #aaa; font-size: 14px; background-size: cover; background-position: center; }
+        .card-content { padding: 20px; }
+        .lot-num { font-size: 16px; font-weight: bold; color: #000; margin-bottom: 5px; }
+        .author { font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px; }
+        .work-title { font-size: 16px; font-weight: bold; margin-bottom: 15px; height: 22px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+        .price { font-size: 15px; font-weight: bold; color: #d9534f; border-top: 1px dashed #e1e1e1; padding-top: 10px; }
+    </style>
 </head>
-<body style="margin:0; padding:0; width:100%; height:100vh; overflow:hidden;">
-    <iframe src="https://live.ise-art.co.jp/catalog?keyword=%E6%A2%85%E5%8E%9F" style="width:100%; height:100%; border:none; margin:0; padding:0;"></iframe>
+<body>
+
+    <div class="navbar">
+        <a href="https://live.ise-art.co.jp/catalog" class="logo">iART auction</a>
+        <div class="lang-menu">
+            <a href="https://live.ise-art.co.jp/catalog">JP</a>
+            <a href="https://live.ise-art.co.jp/catalog?lang=en">EN</a>
+            <a href="https://live.ise-art.co.jp/catalog?lang=zh">CN</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title-section">
+            <h2>7月5日開催セール</h2>
+            <h1>CATALOGUE (梅原龍三郎)</h1>
+        </div>
+
+        <div class="grid">
+            <a href="https://live.ise-art.co.jp/detail?goodsId=8023" class="card" target="_blank">
+                <div class="card-img" style="background-image: url('https://live.ise-art.co.jp/img/goods/8023_1.jpg');">
+                    殘月 カンヌ風景
+                </div>
+                <div class="card-content">
+                    <div class="lot-num">LOT 237</div>
+                    <div class="author">梅原 龍三郎〈1888-1986〉</div>
+                    <div class="work-title">殘月 カンヌ風景</div>
+                    <div class="price">Est: ¥ 5,000,000 - 10,000,000</div>
+                </div>
+            </a>
+
+            <a href="https://live.ise-art.co.jp/detail?goodsId=8024" class="card" target="_blank">
+                <div class="card-img" style="background-image: url('https://live.ise-art.co.jp/img/goods/8024_1.jpg');">
+                    [窗邊裸婦圖]
+                </div>
+                <div class="card-content">
+                    <div class="lot-num">LOT 238</div>
+                    <div class="author">梅原 龍三郎〈1888-1986〉</div>
+                    <div class="work-title">窗邊裸婦圖 (窓辺裸婦図)</div>
+                    <div class="price">Est: ¥ 5,000,000 - 10,000,000</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
 </body>
 </html>
