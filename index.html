@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>正在導向 iART auction...</title>
+    <script>
+        window.onload = function() {
+            // 1. 先跳轉到帶關鍵字的官方網頁
+            window.location.href = "https://live.ise-art.co.jp/catalog?keyword=%E6%A2%85%E5%8E%9F";
+            
+            // 2. 0.5 秒後，模擬按下 Enter 鍵來觸發官方網站的搜尋
+            setTimeout(function() {
+                var searchInput = document.querySelector('input[placeholder*="検索"]');
+                if (searchInput) {
+                    var event = new KeyboardEvent('keydown', {'key': 'Enter'});
+                    searchInput.dispatchEvent(event);
+                }
+            }, 500);
+        };
+    </script>
+</head>
+<body>
+    <p style="text-align:center; margin-top:20%; font-family:sans-serif; color: #666;">
+        正在為您載入梅原龍三郎的最新檢索結果，請稍候...
+    </p>
+</body>
+</html>
