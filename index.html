@@ -3,52 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正在導向 iART auction...</title>
+    <title>iART auction - 梅原龍三郎 作品目錄</title>
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: sans-serif; }
-        #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; justify-content: center; align-items: center; z-index: 9999; color: #666; font-size: 18px; }
-        iframe { width: 100%; height: 100%; border: none; }
+        body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: #f5f5f7; color: #1d1d1f; margin: 0; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 28px; font-weight: 600; color: #000; margin-bottom: 10px; }
+        .header p { font-size: 14px; color: #86868b; }
+        .nav-lang { text-align: right; margin-bottom: 20px; }
+        .nav-lang a { text-decoration: none; color: #0066cc; font-size: 14px; margin-left: 15px; font-weight: 500; }
+        .nav-lang a:hover { text-decoration: underline; }
+        .lot-card { background: #ffffff; border-radius: 18px; padding: 24px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
+        .lot-card:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,0,0,0.08); border: 1px solid #0066cc; }
+        .lot-info { flex: 1; }
+        .lot-number { font-size: 14px; font-weight: 700; color: #0066cc; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .lot-title { font-size: 18px; font-weight: 600; color: #1d1d1f; margin-bottom: 6px; }
+        .lot-author { font-size: 15px; color: #515154; }
+        .arrow { font-size: 20px; color: #86868b; padding-left: 20px; }
     </style>
 </head>
 <body>
 
-    <div id="loading">正在為您安全載入梅原龍三郎的檢索結果，請稍候...</div>
+<div class="container">
+    <div class="nav-lang">
+        <a href="https://live.ise-art.co.jp/catalog">JP</a>
+        <a href="https://live.ise-art.co.jp/catalog?lang=en">EN</a>
+        <a href="https://live.ise-art.co.jp/catalog?lang=zh">CN</a>
+    </div>
 
-    <iframe id="iartFrame" src="https://live.ise-art.co.jp/catalog"></iframe>
+    <div class="header">
+        <h1>梅原龍三郎 檢索結果目錄</h1>
+        <p>點擊下方作品卡片，即可直接進入官方網站檢視詳細介紹與競標</p>
+    </div>
 
-    <script>
-        var frame = document.getElementById('iartFrame');
-        
-        // 當官方網站載入完成後執行
-        frame.onload = function() {
-            try {
-                // 1. 找到官網內部的搜尋輸入框
-                var searchInput = frame.contentWindow.document.querySelector('input[placeholder*="検索"]');
-                
-                if (searchInput) {
-                    // 2. 幫使用者自動打上「梅原」
-                    searchInput.value = "梅原";
-                    
-                    // 3. 觸發輸入事件讓網站偵測到有打字
-                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                    
-                    // 4. 0.3秒後自動按下 Enter 鍵觸發搜尋
-                    setTimeout(function() {
-                        var event = new KeyboardEvent('keydown', { 'key': 'Enter', 'bubbles': true });
-                        searchInput.dispatchEvent(event);
-                        
-                        // 5. 搜尋完成後，關閉蓋在最上面的「請稍候」提示
-                        document.getElementById('loading').style.display = 'none';
-                    }, 300);
-                } else {
-                    // 如果因為防跨網域限制無法直接操作，0.5秒後直接隱藏提示讓使用者手動看網頁
-                    setTimeout(function() { document.getElementById('loading').style.display = 'none'; }, 500);
-                }
-            } catch (e) {
-                // 觸發安全機制時直接顯示官網網頁
-                document.getElementById('loading').style.display = 'none';
-            }
-        };
-    </script>
+    <a href="https://live.ise-art.co.jp/detail?goodsId=8023" class="lot-card" target="_blank">
+        <div class="lot-info">
+            <div class="lot-number">LOT 237</div>
+            <div class="lot-title">殘月 カンヌ風景</div>
+            <div class="lot-author">梅原 龍三郎 (Ryuzaburo UMEHARA)</div>
+        </div>
+        <div class="arrow">➔</div>
+    </a>
+
+    <a href="https://live.ise-art.co.jp/detail?goodsId=8024" class="lot-card" target="_blank">
+        <div class="lot-info">
+            <div class="lot-number">LOT 238</div>
+            <div class="lot-title">窗邊裸婦圖 (窓辺裸婦図)</div>
+            <div class="lot-author">梅原 龍三郎 (Ryuzaburo UMEHARA)</div>
+        </div>
+        <div class="arrow">➔</div>
+    </a>
+</div>
+
 </body>
 </html>
